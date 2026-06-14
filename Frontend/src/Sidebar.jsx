@@ -16,7 +16,7 @@ export default function Sidebar(){
             try{
 
                 const response = await axios.get(
-                "http://localhost:8080/thread",
+                "https://sigmagpt-qrd1.onrender.com/thread",
                 {
                     headers: {
                     Authorization: `Bearer ${token}`
@@ -35,7 +35,7 @@ export default function Sidebar(){
     },[title]);
 
     async function deleteChat(id){
-        await axios.delete(`http://localhost:8080/thread/${id}`);
+        await axios.delete(`https://sigmagpt-qrd1.onrender.com/${id}`);
         setInfo([]);
         setTitle(true);
         setNewChat(true);
@@ -52,7 +52,7 @@ function newThread(){
         setNewId(id)
         setInfo([]);
         setNewChat(false)
-        let data=await axios.get(`http://localhost:8080/thread/${id}`);
+        let data=await axios.get(`https://sigmagpt-qrd1.onrender.com/${id}`);
         console.log(data.data.message)
         setInfo(data.data.message); 
     }

@@ -22,7 +22,7 @@ export default function Login(){
     async function login(event) {
         try{
             event.preventDefault();
-            let result=await axios.post("http://localhost:8080/profile/login",{
+            let result=await axios.post("https://sigmagpt-qrd1.onrender.com/profile/login",{
             username:checkData.username,
             password:checkData.password
             });

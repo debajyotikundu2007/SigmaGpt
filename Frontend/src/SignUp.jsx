@@ -17,7 +17,7 @@ export default function SignUp(){
     async function form_submit(event){
         try{
             event.preventDefault();
-            let result=await axios.post("http://localhost:8080/profile/signup",{
+            let result=await axios.post("https://sigmagpt-qrd1.onrender.com/profile/signup",{
                 username:formData.username,
                 email:formData.email,
                 password:formData.password
