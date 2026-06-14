@@ -35,7 +35,7 @@ export default function Sidebar(){
     },[title]);
 
     async function deleteChat(id){
-        await axios.delete(`https://sigmagpt-qrd1.onrender.com/${id}`);
+        await axios.delete(`https://sigmagpt-qrd1.onrender.com/thread${id}`);
         setInfo([]);
         setTitle(true);
         setNewChat(true);
@@ -52,7 +52,7 @@ function newThread(){
         setNewId(id)
         setInfo([]);
         setNewChat(false)
-        let data=await axios.get(`https://sigmagpt-qrd1.onrender.com/${id}`);
+        let data=await axios.get(`https://sigmagpt-qrd1.onrender.com/thread/${id}`);
         console.log(data.data.message)
         setInfo(data.data.message); 
     }
