@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.main::-webkit-scrollbar{
+    width: 8px;
+}
+
+
+.main::-webkit-scrollbar-track{
+    background: rgb(15, 15, 15);
+}
+
+
+.main::-webkit-scrollbar-thumb{
+    background: gray;
+    border-radius: 10px;
+}
+
+
+.main{
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1.5rem;
+
+}
+
+
+.sidebar{
+    background-color: rgb(15, 15, 15);
+    color: white;
+    width: 30rem;
+    height: 100vh;
+    padding-top: 1px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-right:2px solid grey;
+}
+
+
+.logo{
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid grey;
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.logo i{
+    font-size: 1.5rem;
+}
+
+
+.content p{
+    margin-top: 1.5rem;
+}
+
+
+
+.profile{
+    display: flex;
+    justify-content: space-around;
+    border-top:1px solid grey;
+    padding: 0.6rem 0;
+}
+
+
+.profileLogo{
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid rgb(14, 109, 198);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    background-color: rgb(14, 109, 198);
+    cursor: pointer;
+}
+
+
+.mode{
+    border: 1px solid grey;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5rem;
+    cursor: pointer;
+}
+
+.content{
+    width: 100%;
+}
+
+.delete{
+    color: white;
+    cursor: pointer;
+}
+
+.chat-item{
+    width: 100%;
+    position: relative;
+    margin-bottom: 3rem;
+    background-color: rgba(44, 41, 41, 0.589);
+    border-radius: 1rem;
+}
+
+.delete-container{
+    position: absolute;
+    right: 0.4rem;
+    bottom: 1%;
+}
+
+
+#allChat{
+    cursor: pointer;
+    padding: 1.5rem 0.6rem;
+    width: 100%;
+}

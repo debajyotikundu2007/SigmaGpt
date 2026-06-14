@@ -1,0 +1,80 @@
+.ChatWindow{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    padding-top: 1px;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.6rem;
+    padding: 0 0.8rem;
+    margin-bottom: 3rem;
+}
+.name{
+    display: flex;
+    
+}
+.logout{
+    display: flex;
+    align-items: center;
+    border: 1px solid grey;
+    padding: 0.3rem 0.9rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
+.chat-main{
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+
+}
+
+input::placeholder {
+    color: rgb(133, 129, 129);
+    padding-left: 1rem;
+}
+
+.input{
+    position: relative;
+}
+
+.input input{
+    height: 3rem;
+    width: 60rem;
+    margin: 3rem 0;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    border: 2px solid white;
+    border-radius: 0.7rem;
+    padding:0 3rem 0 1rem;
+}
+
+.send{
+    font-size: 1.6rem;
+    position: absolute;
+    right: 0.8rem;
+    top: 3.7rem;
+}
+
+.newChat{
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

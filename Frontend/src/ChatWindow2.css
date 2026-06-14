@@ -1,0 +1,27 @@
+.user{
+    align-self: flex-end;
+    margin-bottom: 1.5rem;
+    padding: 0.7rem;
+    border-radius: 0.8rem;
+    background-color: rgb(45, 40, 40);
+}
+
+.assistant{
+    width: 70%;
+    margin-bottom: 2rem;
+}
+
+
+.chat-main::-webkit-scrollbar{
+    width: 8px;
+}
+
+.chat-main::-webkit-scrollbar-track{
+    background: rgb(15, 15, 15);
+}
+
+.chat-main::-webkit-scrollbar-thumb{
+    background: gray;
+    border-radius: 10px;
+}
+
