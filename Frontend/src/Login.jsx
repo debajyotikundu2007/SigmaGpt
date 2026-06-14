@@ -53,7 +53,7 @@ export default function Login(){
                         <button>Login</button>
                     </div>
                     <div className="account">
-                        <p>Didn't have an account →</p><a href="/signup">Signup</a>
+                        <p>Didn't have an account →</p><a href="https://sigmagpt-qrd1.onrender.com/profile/signup">Signup</a>
                     </div>
                 </form>
             </div>
