@@ -1,6 +1,7 @@
 import { useState,useEffect } from 'react'
 import './Login.css'
 import axios from 'axios';
+import {Link} from "react-router-dom";
 import { ToastContainer, toast,Bounce } from 'react-toastify';
 export default function Login(){
 
@@ -53,7 +54,7 @@ export default function Login(){
                         <button>Login</button>
                     </div>
                     <div className="account">
-                        <p>Didn't have an account →</p><a href="https://sigmagpt-qrd1.onrender.com/profile/signup">Signup</a>
+                        <p>Didn't have an account →</p><Link to="/signup">SignUp</Link>
                     </div>
                 </form>
             </div>
