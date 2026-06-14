@@ -76,7 +76,7 @@ function newThread(){
                     </div>
                 </div>
                     
-            <div className="profile">
+            {/* <div className="profile">
                 <div className='profileLogo'>
                     <p>DK</p>
                 </div>
@@ -87,7 +87,7 @@ function newThread(){
                 <div className="mode">
                     <p>Upgrade</p>
                 </div>
-            </div>
+            </div> */}
         </section >
     )
 }
