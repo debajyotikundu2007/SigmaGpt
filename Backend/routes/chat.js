@@ -1,7 +1,7 @@
 import express from "express"
 import {Thread,Chat} from "../models/thread.js"
 import passport from "passport";
-import getApiResponse from "../Utils/openAi.js"
+import getApiResponse from "../utils/openai.js"
 const  router=express.Router();
 
 
