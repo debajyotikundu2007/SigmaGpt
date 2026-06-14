@@ -17,6 +17,9 @@ app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(passport.initialize());
 passport.use(User.createStrategy());
+app.get("/",(req,res)=>{
+    res.send("SigmaGpt Woking Successfully")
+})
 app.use("/profile",Register);
 app.use("/thread",Chats);
 
