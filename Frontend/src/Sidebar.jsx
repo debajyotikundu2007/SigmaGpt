@@ -35,7 +35,7 @@ export default function Sidebar(){
     },[title]);
 
     async function deleteChat(id){
-        await axios.delete(`https://sigmagpt-qrd1.onrender.com/thread${id}`);
+        await axios.delete(`https://sigmagpt-qrd1.onrender.com/thread/${id}`);
         setInfo([]);
         setTitle(true);
         setNewChat(true);
@@ -76,18 +76,7 @@ function newThread(){
                     </div>
                 </div>
                     
-            {/* <div className="profile">
-                <div className='profileLogo'>
-                    <p>DK</p>
-                </div>
-                <div className="profileName">
-                    <p>Debajyoti Kundu</p>
-                    <p>Free</p>
-                </div>
-                <div className="mode">
-                    <p>Upgrade</p>
-                </div>
-            </div> */}
+            
         </section >
     )
 }
