@@ -64,10 +64,10 @@ export default function ChatWindow(){
         }catch(e){
             console.log(e);
             setLoading(false);
+            toast.error("Something Went Wrong");
             if(!setInfo){
                 setNewChat(true);
             }
-            toast.error("Something Went Wrong");
         }
     }
 
@@ -93,7 +93,7 @@ export default function ChatWindow(){
             <div className="chat-main">
                 <div className='newChat'>
                     {newChat && <h1>What's going on Today</h1>}
-                    {Loading && <CircleLoader color='white'/>}
+                    {Loading && <CircleLoader color='white' size={150}/>}
                 </div>
                 
                 {info.map((obj)=>{
