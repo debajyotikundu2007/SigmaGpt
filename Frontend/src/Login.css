@@ -107,7 +107,7 @@ body{
     height: 2.5rem;
     border-radius: 0.6rem;
 }
-.login-button button:focus{
+.login-button button:focus,.login-button button:hover{
     background-color: white;
     color: #1a1919 !important;
 }
