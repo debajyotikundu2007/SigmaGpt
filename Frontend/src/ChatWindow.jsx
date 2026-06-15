@@ -93,7 +93,7 @@ export default function ChatWindow(){
             <div className="chat-main">
                 <div className='newChat'>
                     {newChat && <h1>What's going on Today</h1>}
-                    {Loading && <CircleLoader color='white' size={150}/>}
+                    {Loading && <CircleLoader color='white' size={120}/>}
                 </div>
                 
                 {info.map((obj)=>{
