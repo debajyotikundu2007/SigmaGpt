@@ -62,7 +62,11 @@ export default function ChatWindow(){
             setInfo(data.data.message);  
             setNewId(data.data._id);
         }catch(e){
-            console.log(e)
+            console.log(e);
+            setLoading(false);
+            if(!setInfo){
+                setNewChat(true);
+            }
             toast.error("Something Went Wrong");
         }
     }
