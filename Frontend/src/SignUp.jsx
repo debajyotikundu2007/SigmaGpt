@@ -20,7 +20,7 @@ export default function SignUp(){
             let result=await axios.post("https://sigmagpt-qrd1.onrender.com/profile/signup",{
                 username:formData.username,
                 email:formData.email,
-                password:formData.password
+                password:formData.password,
             });
         
             localStorage.setItem("token",result.data.token);
@@ -28,7 +28,7 @@ export default function SignUp(){
             window.location.href="/";
         }catch(err){
             console.log(err);
-            toast.error("Something went Wrong")
+            toast.error("Something went Wrong");
         }
         
     }

@@ -2,7 +2,7 @@ body{
     background-color: rgb(15, 15, 15);
     color: white;
 }
-.login{
+.update{
     height: 100vh;
     display: flex;
     align-items: center;
@@ -10,11 +10,11 @@ body{
 
 }
 
-.login-header h1{
+.update-header h2{
     text-align: center;
     margin-bottom: 2rem;
 }
-.login-layer{
+.update-layer{
     width: 25rem;
     height: 30rem;
     background-color: #1a1919;
@@ -46,11 +46,11 @@ body{
     }
 }
 
-.login-middle{
+.update-middle{
     position: relative;
 }
 
-.login-middle .login-input{
+.update-middle .update-input{
     height: 3rem;
     width: 21.3rem;
     padding:2px;
@@ -61,7 +61,7 @@ body{
     outline: none;
 }
 
-.login-middle label{
+.update-middle label{
     position: absolute;
     font-size: 1.1rem;
     
@@ -74,13 +74,13 @@ body{
     padding: 0 5px;
 }
 
-.login-middle .login-input:focus{
+.update-middle .update-input:focus{
     border-color: rgb(39, 187, 236);
     box-shadow: 0 0 5px rgba(39, 187, 236, 0.5);
 }
 
 
- .login-middle .login-input:focus~label,.login-middle .login-input:not(:placeholder-shown) ~ label{
+ .update-middle .update-input:focus~label,.update-middle .update-input:not(:placeholder-shown) ~ label{
     top: -2%;
     left: 10px;
     font-size: 1.1rem;
@@ -90,15 +90,15 @@ body{
 }
 
 
-.login-button{
+.update-button{
     position: absolute;
-    bottom: 7rem;
+    bottom: 1rem;
     width: 85%;
     display: flex;
     justify-content: center;
 }
 
-.login-button button{
+.update-button button{
     width: 100%;
     font-size: 1.1rem;
     background-color: #1a1919;
@@ -107,31 +107,7 @@ body{
     height: 2.5rem;
     border-radius: 0.6rem;
 }
-.login-button button:focus,.login-button button:hover{
+.update-button button:focus,.update-button button:hover{
     background-color: white;
     color: #1a1919 !important;
-}
-
-.account{
-    display: flex;
-    position: absolute;
-    bottom: 1rem;
-}
-.account a{
-    text-decoration: none;
-    color: rgb(39, 187, 236);
-    margin-left: 0.5rem;
-}
-
-.forgot{
-    display: flex;
-    position: absolute;
-    bottom: 4rem;
-    
-}
-
-.forgot a{
-    text-decoration: none;
-    color: rgb(39, 187, 236);
-    margin-left: 0.5rem;
 }

@@ -10,6 +10,10 @@ export default function Login(){
             toast.success("Logged Out Successfully");
             localStorage.removeItem("removeToast");
         }
+        if(localStorage.getItem("welcomeToast")){
+            toast.success("Password Updated Successfully");
+            localStorage.removeItem("welcomeToast");
+        }
         },[]);
 
     const[checkData,setCheckData]=useState({username:"",password:""});
@@ -52,6 +56,9 @@ export default function Login(){
                     </div>
                     <div className="login-button">
                         <button>Login</button>
+                    </div>
+                    <div className="forgot">
+                        <p>Forgot Password →</p><Link to="/update">Update</Link>
                     </div>
                     <div className="account">
                         <p>Didn't have an account →</p><Link to="/signup">SignUp</Link>
