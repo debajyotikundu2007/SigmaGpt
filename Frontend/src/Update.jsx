@@ -1,9 +1,11 @@
 import { useState,useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import './Update.css'
 import axios from 'axios';
 import {Link} from "react-router-dom";
 import { ToastContainer, toast,Bounce } from 'react-toastify';
 export default function Update(){
+    const navigate=useNavigate();
     const[verifyData,setVerifyData]=useState({username:"",email:"",password:""});
     
     function track(event){
@@ -24,12 +26,12 @@ export default function Update(){
 
             if (result.data.success) {
                 localStorage.setItem("welcomeToast","true");
-                window.location.href = "/login";
+                navigate("/login");
             }
 
         }
         catch (err) {
-            toast.error(err.response?.data?.message || "Something went wrong");
+            toast.error("Something went wrong");
         }
     }
     return(

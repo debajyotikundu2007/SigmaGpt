@@ -43,13 +43,13 @@ router.post("/update",async function (req,res){
   console.log(req.body);
   const {username,email,password}=req.body;
   if(!username || !email){
-    return res.status(201).json({
+    return res.status(400).json({
       message:"Username or email is empty"
     });
   }
     let user=await User.findOne({username,email});
     if(!user){
-    return res.status(201).json({
+    return res.status(404).json({
       message:"Username or email is wrong"
     });
   }
