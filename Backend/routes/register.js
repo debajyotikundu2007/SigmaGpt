@@ -56,6 +56,11 @@ router.post("/update",async function (req,res){
 
   await user.setPassword(password);
   await user.save();
+
+  return res.status(200).json({
+    success:true,
+    message:"Password updated successfully"
+  });
   })
 
 export default router;

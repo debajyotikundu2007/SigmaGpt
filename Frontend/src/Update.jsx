@@ -22,13 +22,14 @@ export default function Update(){
             password:verifyData.password
             });
 
-            localStorage.setItem("welcomeToast","true");
-
-            window.location.href="/login";
+            if (result.data.success) {
+                localStorage.setItem("welcomeToast","true");
+                window.location.href = "/login";
+            }
 
         }
-        catch{
-            toast.error("Invalid Name or Email");
+        catch (err) {
+            toast.error(err.response?.data?.message || "Something went wrong");
         }
     }
     return(
