@@ -1,13 +1,10 @@
 import "dotenv/config";
 import axios from 'axios';
 const openAiUrl="https://api.openai.com/v1/responses"
-async function getApiResponse(message) {
+async function getApiResponse(messages) {
     const data ={
             model:"gpt-5-mini",
-            input:[{
-                role:"user",
-                content:message,
-            }]
+            input:messages
     }
     const config={
         headers:{
@@ -16,6 +13,7 @@ async function getApiResponse(message) {
         }
     }
     let response=await axios.post(openAiUrl,data,config);
+    
     return response.data.output[1].content[0].text;
     
 }

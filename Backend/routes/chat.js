@@ -53,18 +53,18 @@ router.post("/",
             role:"user",
         });
 
-    let data=await getApiResponse(message);
-    let chat1=new Chat({
-        message:data,
-        role:"assistant"
-    });
-
-    let titleData = await getApiResponse(
-  `${message}
-    Create a concise and meaningful title (maximum 8 words) that summarizes the main topic.
-    Do not use quotes, punctuation, explanations, or additional text.
-    Return only the title.`);
     if(!id){
+        let titleData = await getApiResponse(
+            `${message}
+            Create a concise and meaningful title (maximum 8 words) that summarizes the main topic.
+            Do not use quotes, punctuation, explanations, or additional text.
+            Return only the title.`);
+            let data=await getApiResponse(message);
+            let chat1=new Chat({
+                message:data,
+                role:"assistant"
+            });
+
         let thread=new Thread({
             title:titleData,
             user:req.user._id,
@@ -75,10 +75,27 @@ router.post("/",
     }
     
     else{
-        let data=await Thread.findById(id);
-        data.message.push(chat,chat1);
-        await Thread.findByIdAndUpdate(id,{message:data.message,updated_at:Date.now()});
-        res.json(data);
+        let thread=await Thread.findById(id);
+
+        let previousMessage=thread.message.slice(-20).map((msg)=>({
+            role:msg.role,
+            message:msg.message
+        }));
+        
+        previousMessage.push({
+            role:"user",
+            message:message
+        });
+        
+        let data=await getApiResponse(previousMessage);
+        let chat1=new Chat({
+            role:"assistant",
+            message:data
+        });
+        thread.message.push(chat,chat1);
+        await thread.save();
+
+        res.json(thread);
 
     }
     
@@ -88,7 +105,7 @@ router.post("/",
         res.status(500).json({ success: false });
     }
     
-})
+});
 
 
 

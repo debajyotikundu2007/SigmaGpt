@@ -1,4 +1,5 @@
 .user{
+    width: 37%;
     align-self: flex-end;
     margin-bottom: 1.5rem;
     padding: 0.7rem;
@@ -7,7 +8,7 @@
 }
 
 .assistant{
-    width: 70%;
+    width: 60%;
     margin-bottom: 2rem;
 }
 

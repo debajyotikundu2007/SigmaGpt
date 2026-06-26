@@ -56,7 +56,6 @@ export default function ChatWindow(){
             }
             );
 
-
             setTitle(true);
             setLoading(false);
             setInfo(data.data.message);  
