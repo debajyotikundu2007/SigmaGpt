@@ -79,15 +79,18 @@ router.post("/",
 
         let previousMessage=thread.message.map((msg)=>({
             role:msg.role,
-            message:msg.message
+            content:msg.message
         }));
         
         previousMessage.push({
             role:"user",
-            message:message
+            content:message
         });
 
-        let data=await getApiResponse(previousMessage);
+        let data=await getApiResponse({
+            role:"user",
+            content:message
+        });
         let chat1=new Chat({
             role:"assistant",
             message:data
@@ -101,7 +104,7 @@ router.post("/",
     
    
     }catch(err){
-        console.log(err);
+        console.log(err.response?.data || err);
         res.status(500).json({ success: false });
     }
     
