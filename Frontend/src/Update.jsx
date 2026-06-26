@@ -44,11 +44,11 @@ export default function Update(){
                     <div className='update-middle'>
                         <input type="text" className='update-input' id='name' name='username' placeholder=' ' onChange={track} value={verifyData.username} autoComplete="off"/>
                         <label htmlFor="name">Name</label>
-                    </div><br /><br /><br />
+                    </div><br /><br />
                     <div className='update-middle'>
                         <input type="email" className='update-input' id='email' name='email' placeholder=' ' onChange={track} value={verifyData.email} autoComplete="off"/>
                         <label htmlFor="email">Email</label>
-                    </div><br /><br /><br />
+                    </div><br /><br />
                     <div className='update-middle'>
                         <input type="password" className='update-input' name='password' id='password' placeholder=' ' onChange={track} value={verifyData.password} autoComplete="off"/>
                         <label htmlFor="password">New Password</label>

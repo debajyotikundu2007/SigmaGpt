@@ -49,7 +49,7 @@ export default function Login(){
                     <div className='login-middle'>
                         <input type="text" className='login-input' id='name' name='username' placeholder=' ' onChange={track} value={checkData.username} autoComplete="off"/>
                         <label htmlFor="name">Name</label>
-                    </div><br /><br /><br />
+                    </div><br /><br />
                     <div className='login-middle'>
                         <input type="password" className='login-input' name='password' id='password' placeholder=' ' onChange={track} value={checkData.password} autoComplete="off"/>
                         <label htmlFor="password">Password</label>
@@ -58,7 +58,7 @@ export default function Login(){
                         <button>Login</button>
                     </div>
                     <div className="forgot">
-                        <p>Forgot Password →</p><Link to="/update">Update</Link>
+                        <p>Forgot Password →</p><Link to="/update">Update Password</Link>
                     </div>
                     <div className="account">
                         <p>Didn't have an account →</p><Link to="/signup">SignUp</Link>

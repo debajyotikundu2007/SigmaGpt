@@ -1,6 +1,7 @@
 body{
     background-color: rgb(15, 15, 15);
     color: white;
+    font-family: "Bodoni Moda", serif;
 }
 .signup{
     height: 100vh;
@@ -16,7 +17,7 @@ body{
 }
 .layer{
     width: 25rem;
-    height: 33rem;
+    height: 35rem;
     background-color: #1a1919;
     border-radius: 2rem;
     padding: 2rem;
@@ -92,7 +93,7 @@ body{
 
 .submit{
     position: absolute;
-    bottom: 5rem;
+    bottom: 4rem;
     width: 85%;
 }
 

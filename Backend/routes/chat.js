@@ -59,9 +59,14 @@ router.post("/",
         role:"assistant"
     });
 
+    let titleData = await getApiResponse(
+  `${message}
+    Create a concise and meaningful title (maximum 8 words) that summarizes the main topic.
+    Do not use quotes, punctuation, explanations, or additional text.
+    Return only the title.`);
     if(!id){
         let thread=new Thread({
-            title:message,
+            title:titleData,
             user:req.user._id,
             message:[chat,chat1]
         });
