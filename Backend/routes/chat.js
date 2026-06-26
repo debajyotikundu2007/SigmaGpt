@@ -57,7 +57,7 @@ router.post("/",
         let titleData = await getApiResponse(
             `${message}
             Create a concise and meaningful title (maximum 8 words) that summarizes the main topic.
-            Do not use quotes, punctuation, explanations, or additional text.
+            Do not use quotes, punctuation, explanations,question marks, or additional text.
             Return only the title.`);
             let data=await getApiResponse(message);
             let chat1=new Chat({
@@ -87,10 +87,7 @@ router.post("/",
             content:message
         });
 
-        let data=await getApiResponse({
-            role:"user",
-            content:message
-        });
+        let data=await getApiResponse(previousMessage);
         let chat1=new Chat({
             role:"assistant",
             message:data

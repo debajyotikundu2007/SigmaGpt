@@ -13,6 +13,7 @@ async function getApiResponse(messages) {
         }
     }
     let response=await axios.post(openAiUrl,data,config);
+    console.log(response.data.output[1].content[0].text);
     
     return response.data.output[1].content[0].text;
     
