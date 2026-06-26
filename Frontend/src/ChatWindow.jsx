@@ -45,7 +45,7 @@ export default function ChatWindow(){
             setNewChat(false)
             setLoading(true);
         
-            let data=await axios.post(`http://localhost:8080/thread`,{
+            let data=await axios.post(`https://sigmagpt-qrd1.onrender.com/thread`,{
                 message:prompt,
                 id:newId
             },
