@@ -77,7 +77,7 @@ router.post("/",
     else{
         let thread=await Thread.findById(id);
 
-        let previousMessage=thread.message.slice(-20).map((msg)=>({
+        let previousMessage=thread.message.map((msg)=>({
             role:msg.role,
             message:msg.message
         }));
@@ -86,7 +86,7 @@ router.post("/",
             role:"user",
             message:message
         });
-        
+
         let data=await getApiResponse(previousMessage);
         let chat1=new Chat({
             role:"assistant",
