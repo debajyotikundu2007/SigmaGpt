@@ -1,33 +1,47 @@
-import nodemailer from "nodemailer";
-console.log("BREVO_USER =", process.env.BREVO_USER);
-console.log("NODE_ENV =", process.env.NODE_ENV);
-const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
-  
-  auth: {
-    user: process.env.BREVO_USER,
-    pass: process.env.BREVO_PASS,
-  },
-});
+import Brevo from "@getbrevo/brevo";
+
+const apiInstance = new Brevo.TransactionalEmailsApi();
+
+apiInstance.setApiKey(
+  Brevo.TransactionalEmailsApiApiKeys.apiKey,
+  process.env.BREVO_API_KEY
+);
 
 export async function sendEmail(to, subject, text, html) {
   try {
-    console.log("Trying to connect to Brevo...");
-    const info = await transporter.sendMail({
-      from: `"SigmaGPT" <${process.env.BREVO_USER}>`,
-      to,
-      subject,
-      text,
-      html,
-    });
 
-    console.log("Email sent:", info.messageId);
-    return info;
+    console.log("Sending email using Brevo API...");
+
+    const emailData = new Brevo.SendSmtpEmail();
+
+    emailData.sender = {
+      name: "SigmaGPT",
+      email: process.env.SENDER_EMAIL,
+    };
+
+    emailData.to = [
+      {
+        email: to,
+      },
+    ];
+
+    emailData.subject = subject;
+    emailData.textContent = text;
+    emailData.htmlContent = html;
+
+    const response =
+      await apiInstance.sendTransacEmail(emailData);
+
+    console.log("Email sent successfully!");
+    console.log(response);
+
+    return response;
 
   } catch (err) {
-    console.error("Error sending email:", err);
+
+    console.error("Brevo API Error:");
+    console.error(err);
+
     throw err;
   }
 }
