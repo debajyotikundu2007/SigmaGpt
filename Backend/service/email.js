@@ -1,26 +1,20 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp-relay.brevo.com",
+  port: 587,
+  secure: false,
 
   auth: {
-    type: "OAuth2",
-    user: process.env.GOOGLE_USER,
-    clientId: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+    user: process.env.BREVO_USER,
+    pass: process.env.BREVO_PASS,
   },
-
-  tls: {
-    family: 4,        // IPv4 force করার চেষ্টা
-    rejectUnauthorized: true
-  }
 });
 
 export async function sendEmail(to, subject, text, html) {
   try {
     const info = await transporter.sendMail({
-      from: `SigmaGPT <${process.env.GOOGLE_USER}>`,
+      from: `"SigmaGPT" <${process.env.BREVO_USER}>`,
       to,
       subject,
       text,
