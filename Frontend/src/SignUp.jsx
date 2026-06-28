@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './Signup.css'
-
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 import { ToastContainer, toast,Bounce } from 'react-toastify';
 
 export default function SignUp(){
+    const navigate=useNavigate()
     const[formData,setFormData]=useState({username:"",email:"",password:""});
 
     function input_track(event){
@@ -22,10 +23,16 @@ export default function SignUp(){
                 email:formData.email,
                 password:formData.password,
             });
+            if(result.data.success){
+                localStorage.setItem("sent",true);
+                navigate(`/verify`,{
+                    state:{
+                        email:formData.email
+                    }
+                });
+            }
         
-            localStorage.setItem("token",result.data.token);
-            localStorage.setItem("welcomeToast","true");
-            window.location.href="/";
+            
         }catch(err){
             console.log(err);
             toast.error("Something went Wrong");

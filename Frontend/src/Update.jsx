@@ -25,8 +25,12 @@ export default function Update(){
             });
 
             if (result.data.success) {
-                localStorage.setItem("welcomeToast","true");
-                navigate("/login");
+                localStorage.setItem("sent",true);
+                navigate("/verify",{
+                    state:{
+                        email:verifyData.email
+                    }
+                });
             }
 
         }
@@ -46,7 +50,7 @@ export default function Update(){
                         <label htmlFor="name">Name</label>
                     </div><br /><br />
                     <div className='update-middle'>
-                        <input type="email" className='update-input' id='email' name='email' placeholder=' ' onChange={track} value={verifyData.email} autoComplete="off"/>
+                        <input type="email" className='update-input' name='email' id='email' placeholder=' ' onChange={track} value={verifyData.email} autoComplete="off"/>
                         <label htmlFor="email">Email</label>
                     </div><br /><br />
                     <div className='update-middle'>
@@ -54,7 +58,7 @@ export default function Update(){
                         <label htmlFor="password">New Password</label>
                     </div>
                     <div className="update-button">
-                        <button>Update</button>
+                        <button>Verify & Update</button>
                     </div>
 
                 </form>

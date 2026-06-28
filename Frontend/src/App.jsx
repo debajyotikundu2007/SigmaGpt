@@ -5,7 +5,8 @@ import { ToastContainer, toast,Bounce } from 'react-toastify';
 import ChatWindow from "./ChatWindow.jsx";
 import SignUp from "./SignUp.jsx";
 import Login from "./Login.jsx";
-import Update from "./Update.jsx"
+import Update from "./Update.jsx";
+import { Verify } from "./Verify.jsx";
 import { MyContext } from "./MyContext.jsx";
 
 import {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/signup" element={token? <Navigate to="/" />:<SignUp/>} />
 
           <Route path="/login" element={token? <Navigate to="/" />:<Login/>}/>
+          <Route path="/verify" element={<Verify/>}/>
           <Route path="/update" element={<Update/>}/>
           <Route
             path="/"

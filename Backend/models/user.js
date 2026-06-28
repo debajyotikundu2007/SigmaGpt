@@ -5,8 +5,9 @@ const userSchema = new Schema({
     email:{
         type:String,
         required:true,
+        unique:true,
+        lowercase:true
     }
-
 });
 userSchema.plugin(passportLocalMongoose.default);
 export const User = mongoose.model("User", userSchema);
