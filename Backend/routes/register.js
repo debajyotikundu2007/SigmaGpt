@@ -59,6 +59,9 @@ router.post("/update",async function (req,res){
       message:"Username or email is wrong"
     });
   }
+  if(user){
+    await OTP.deleteMany({user:user._id})
+  }
     let otp=generateOTP();
     let html=getOtpHtml(otp);
     let hashOtp=crypto.createHash("sha256").update(otp).digest("hex");
