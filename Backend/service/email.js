@@ -1,40 +1,39 @@
-import nodemailer from "nodemailer"
+import nodemailer from "nodemailer";
+
 const transporter = nodemailer.createTransport({
-  host:"smtp.gmail.com",
-  port:587,
-  secure:false,
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,      // 587  false
+  requireTLS: true,
+
   auth: {
-    type: 'OAuth2',
+    type: "OAuth2",
     user: process.env.GOOGLE_USER,
-    clientId:process.env.GOOGLE_CLIENT_ID,
-    clientSecret:process.env.GOOGLE_CLIENT_SECRET,
-    refreshToken:process.env.GOOGLE_REFRESH_TOKEN,
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
   },
+
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 });
 
-// Verify the connection configuration
-transporter.verify((error, success) => {
-  if (error) {
-    console.error('Error connecting to email server:', error);
-  } else {
-    console.log('Email server is ready to send messages');
-  }
-});
-
-
-export const sendEmail = async (to, subject, text, html) => {
+export async function sendEmail(to, subject, text, html) {
   try {
     const info = await transporter.sendMail({
-      from: `"Your Name" <${process.env.GOOGLE_USER}>`, // sender address
-      to, // list of receivers
-      subject, // Subject line
-      text, // plain text body
-      html, // html body
+      from: `SigmaGPT <${process.env.GOOGLE_USER}>`,
+      to,
+      subject,
+      text,
+      html,
     });
 
-    console.log('Message sent: %s', info.messageId);
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-  } catch (error) {
-    console.error('Error sending email:', error);
+    console.log("Message sent:", info.messageId);
+    return info;
+
+  } catch (err) {
+    console.error("Error sending email:", err);
+    throw err;   // খুব গুরুত্বপূর্ণ
   }
-};
+}
