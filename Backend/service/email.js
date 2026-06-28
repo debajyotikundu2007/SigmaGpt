@@ -1,10 +1,7 @@
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,      // 587  false
-  requireTLS: true,
+  service: "gmail",
 
   auth: {
     type: "OAuth2",
@@ -14,9 +11,10 @@ const transporter = nodemailer.createTransport({
     refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
   },
 
-  connectionTimeout: 10000,
-  greetingTimeout: 10000,
-  socketTimeout: 10000,
+  tls: {
+    family: 4,        // IPv4 force করার চেষ্টা
+    rejectUnauthorized: true
+  }
 });
 
 export async function sendEmail(to, subject, text, html) {
@@ -29,11 +27,11 @@ export async function sendEmail(to, subject, text, html) {
       html,
     });
 
-    console.log("Message sent:", info.messageId);
+    console.log("Email sent:", info.messageId);
     return info;
 
   } catch (err) {
     console.error("Error sending email:", err);
-    throw err;   // খুব গুরুত্বপূর্ণ
+    throw err;
   }
 }
